@@ -24,7 +24,8 @@ Actually fill out the details of the planner each day !
 
 ## Cron Jobs (eg: at 5:55am, daily, weekly, monthly)
 
+~~~~
 55 05 * * * /usr/local/scripts/autoprint/print_planner daily
 55 05 * * SUN /usr/local/scripts/autoprint/print_planner weekly
 55 05 1 * * /usr/local/scripts/autoprint/print_planner monthly
-
+~~~~
