@@ -1,0 +1,49 @@
+#!/bin/bash
+#********************************************************************************
+# File: print_planner
+# @(#) Purpose: Automatically print pages for your daily planner
+# @(#) on a regular basis. (Weekly, Monthly, etc)
+#**********************************************************************************
+# Written By: Brad Detchevery
+# Created: Jan 5, 2020
+# ********************************************************************************/
+
+#Override common variables specific to enviornment as needdd
+if [ -e ~/bin/commonvars.sh ] ; then
+. ~/bin/commonvars.sh
+fi
+if [ "$DailyPlanner" == "" ] ; then
+ export DailyPlanner=daily.pdf
+fi
+if [ "$WeeklyPlanner" == "" ] ; then
+ export WeeklyPlanner=weekly.pdf
+fi
+if [ "$WeeklyGoals" == "" ] ; then
+ export WeeklyGoals=Weekly_Planning_Roles_And_Goals.pdf
+fi
+
+if [ "$MonthlyPlanner" == "" ] ; then
+ export MonthlyPlanner=monthly.pdf
+fi
+
+if [ "$1" == "" ] ; then
+echo "Missing Arguments: Usage: $0 daily or $0 weekly or $0 monthly"
+exit 0
+fi;
+if [ "$1" == "daily" ] ; then
+echo Printing daily plan file $DailyPlanner
+lpr $DailyPlanner
+exit 0;
+fi
+if [ "$1" == "weekly" ] ; then
+echo Printing weekly plan file $WeeklyPlanner and $WeeklyGoals
+lpr $WeeklyPlanner
+lpr  $WeeklyGoals
+exit 0;
+fi
+if [ "$1" == "monthly" ] ; then
+echo Printing monthly plan file $MonthlyPlanner
+lpr $MonthlyPlanner
+exit 0;
+fi
+
