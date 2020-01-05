@@ -21,3 +21,10 @@ Extract the github project to a location on your linux box (eg: /usr/local/scrip
 Schedule cronjobs on a daily, weekly, and monthly basis
 
 Actually fill out the details of the planner each day !
+
+## Cron Jobs (eg: at 5:55am, daily, weekly, monthly)
+
+55 05 * * * /usr/local/scripts/autoprint/print_planner daily
+55 05 * * SUN /usr/local/scripts/autoprint/print_planner weekly
+55 05 1 * * /usr/local/scripts/autoprint/print_planner monthly
+
